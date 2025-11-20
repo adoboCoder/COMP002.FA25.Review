@@ -19,3 +19,49 @@
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
+// Wait for the page to load
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Get the links
+    var tab1Link = document.getElementById("tab1Link");
+    var tab2Link = document.getElementById("tab2Link");
+    var tab3Link = document.getElementById("tab3Link");
+
+    // Get the tab content sections
+    var tab1 = document.getElementById("tab1");
+    var tab2 = document.getElementById("tab2");
+    var tab3 = document.getElementById("tab3");
+
+    // A function to hide all tabs
+    function hideAllTabs() {
+        tab1.style.display = "none";
+        tab2.style.display = "none";
+        tab3.style.display = "none";
+    }
+
+    // Show Tab 1 by default
+    hideAllTabs();
+    tab1.style.display = "block";
+
+    // When clicking Tab 1
+    tab1Link.addEventListener("click", function (event) {
+        event.preventDefault();         // Prevents the page from reloading
+        hideAllTabs();                  // Hide everything
+        tab1.style.display = "block";   // Show tab 1
+    });
+
+    // When clicking Tab 2
+    tab2Link.addEventListener("click", function (event) {
+        event.preventDefault();
+        hideAllTabs();
+        tab2.style.display = "block";
+    });
+
+    // When clicking Tab 3
+    tab3Link.addEventListener("click", function (event) {
+        event.preventDefault();
+        hideAllTabs();
+        tab3.style.display = "block";
+    });
+
+});
